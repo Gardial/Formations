@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        isPalindrome('Arcra');
+        function isPalindrome (MotATester)
+        {
+            MotATester=MotATester.toLowerCase();
+            let MotTest=''
+            let tabMot=MotATester.split('');
+            for (let i=tabMot.length-1; i>=0; i--)
+            {
+                console.log(tabMot[i]);
+                MotTest=MotTest.concat(tabMot[i]);
+            }
+            if(MotTest===MotATester)
+            {
+                console.log("c'est un palindrome")
+                return true;
+            }
+            else
+            {
+                console.log("ce n'est pas un palindrome")
+                return false;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
