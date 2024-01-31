@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+// EXERCICE 1 - Rectangle + Carrés 
+/*
+class Rectangle{
+
+    _largeur;
+    _longueur;
+
+    constructor (largeur, longueur)
+    {
+        this._largeur=largeur
+        this._longueur=longueur
+    }
+
+    perimeter(){
+        return(2*this._largeur + 2*this._longueur)
+    }
+
+    isValid()
+    {
+        return (this._largeur>0 && this._longueur>0) ? true : false
+    }
+
+    isBiggerThan(forme)
+    {
+        return (this.perimeter > forme.perimeter) ? true : false 
+    }
+}
+
+    class Square extends Rectangle{
+
+        constructor (cote)
+        {
+           super(cote,cote)
+        }
+
+        perimeter()
+        {
+            return super.perimeter()
+        }
+    }
+
+const r = new Rectangle(10, 20); // P = 2l + 2L
+console.log(r.perimeter) // 60
+console.log(r.isValid) // true - Renvoie faux si une des dimensions est négatif
+const r2 = new Rectangle(-10, 20);
+console.log(r2.isValid) // false - Renvoie faux si une des dimensions est négatif
+const c = new Square(10);  // Hérite de rectangle
+console.log(c.perimeter) // 40 
+console.log(r.isBiggerThan(c)) // true - Compare 2 formes géomètriques par rapport à leur périmètres
+
+*/
+//--------------------------------------------------------------------------------------------------------------
+
+class Book{
+
+    _titre =""
+    _nbPages = 0
+    _pageEnCours =0
+    
+    constructor (titre, nbPages)
+    {
+        this._titre=titre
+        this._nbPage=nbPages
+    }
+
+    titre()
+    {
+        return this._titre;
+    }
+
+    page()
+    {
+        if(this._pageEnCours < this.nbPages)
+        {
+            return this._pageEnCours;
+        }
+    }
+
+    nextPage()
+    {
+        this._pageEnCours++;
+    }
+
+    close()
+    {
+        this._pageEnCours=0;
+    }
+
+}
+
+class Library{
+    _tabLivres =[]
+    constructor() 
+    {
+        this._tabLivres = new Array()
+    }
+
+    addBook(book)
+    {
+        this._tabLivres.push(book);
+    }
+
+    addBooks(books)
+    {
+        books.forEach((book) =>
+            {
+                this._tabLivres.push(book)
+            })
+    }
+
+    findBooksByLetter(lettre)
+    {
+        return this._tabLivres.filter((livre) => livre._titre[0].toLowerCase() === (lettre.toLowerCase()));
+    }
+}
+
+const b = new Book('Seigneur des anneaux', 200);
+console.log(b.page)
+b.nextPage()
+console.log(b.page)
+b.close()
+console.log(b.page)
+
+const l = new Library()
+l.addBook(b)
+l.addBooks([
+    new Book('Ready players two', 100),
+    new Book('Oui-oui', 10),
+    new Book('Sillage', 50),
+])
+l.findBooksByLetter('S')
+console.log(l.findBooksByLetter('S'))
+
+
+
+</script>
+<body>
+    
+</body>
+</html>
