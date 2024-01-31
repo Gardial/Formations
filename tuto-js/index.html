@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-
+        /*
+        // EXERCICE 1  - Palindrome
         isPalindrome('Arcra');
+        isPalindrome('Bonjour')
+        isPalindrome('Kayak')
         function isPalindrome (MotATester)
         {
             MotATester=MotATester.toLowerCase();
@@ -19,16 +22,113 @@
             }
             if(MotTest===MotATester)
             {
-                console.log("c'est un palindrome")
+                console.log(MotATester +" : c'est un palindrome")
                 return true;
             }
             else
             {
-                console.log("ce n'est pas un palindrome")
+                console.log(MotATester +" : ce n'est pas un palindrome")
                 return false;
             }
         }
+        // FIN EXERCICE 1
+        */
 
+        /*
+        // EXERCICE 2  - Classements de notes d'élèves 
+        const students = [
+            {
+                name:'Jhon',
+                notes:[1,20,18,19,12]
+            },
+            {
+                name:'Jane',
+                notes:[17,18,20,13,15]
+            },
+            {
+                name:'Sophie',
+                notes:[17,12,14,15,13]
+            },
+            {
+                name:'Marc',
+                notes:[2,3,5,8,9]
+            },
+            {
+                name:'Manon',
+                notes:[18,17,18,19,12]
+            }
+        ]
+
+        studentsMoyenne(students,3);
+
+        function studentsMoyenne(students,topNotes)
+        {
+            students.forEach(student => {
+                let moyenne=0;
+                student.notes.forEach(note =>{
+                    moyenne+=note;
+                })
+                moyenne=(moyenne/student.notes.length)
+                student.moyenne=moyenne;
+                console.log('la moyenne de '+student.name+' est de : '+ moyenne)
+                console.log('---la meilleur note est de : '+Math.max(...student.notes))
+                console.log('---la pire note est de : '+Math.min(...student.notes))
+            });
+            students.sort((a,b)=>a.moyenne -b.moyenne);
+            students.reverse();
+            (console.log("Les meilleurs moyennes sont : "))
+            for (let i=0;i<topNotes;i++)
+            {
+               console.log(students[i]);
+            }
+        }
+        // FIN EXERCICE 2 
+        */
+
+
+        /* EXERCICE 3 - Frequence de mots
+        const phrase = `Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres.`
+        FrequenceMots(phrase)
+        function FrequenceMots(phrase)
+        {
+            frequencies={};
+            phraseSansMaj = phrase.toLowerCase();
+            phrasePropre = phraseSansMaj.replaceAll(/[,.]+/g,"")
+            tabPhrasePropre = phrasePropre.split(" ")
+            console.log(tabPhrasePropre);
+            tabPhrasePropre.forEach(Mot=>{
+                //for (let i=0;i<=tabPhrasePropre.length;i++)
+                //{   
+                 //   if(Mot==tabPhrasePropre[i])
+                  //  {
+                        if(frequencies[Mot])
+                        {
+                            frequencies[Mot]++
+                        }
+                        else{
+                            frequencies[Mot]=1
+                        }
+                   //     frequence=frequence+1
+                   // }
+               // }
+           // console.log("il y a "+frequence+" fois le mot '"+Mot+"' dans cette phrase")
+           // frequence=0;
+            })
+
+            const tabFrequence =[]
+            for (let mot in frequencies)
+            {
+                tabFrequence.push(
+                {
+                    mot: mot,
+                    frequence: frequencies[mot] 
+                })
+            }   
+            tabFrequence.sort();
+            console.log(tabFrequence);
+    }
+    // FIN EXERCICE 3 
+    */ 
 
     </script>
 </head>
